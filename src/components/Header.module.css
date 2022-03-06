@@ -1,0 +1,15 @@
+.header {
+  grid-area: h;
+  background-color: rgb(130, 243, 243);
+  border-radius: 40px;
+  box-shadow: 0 0 5px 1px;
+  margin-top: 10px;
+}
+.header img {
+  width: 70px;
+  position: relative;
+   top: -12px;
+  left: -7px;
+  border-radius: 50%;
+  
+}
