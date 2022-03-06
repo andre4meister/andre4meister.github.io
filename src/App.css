@@ -8,6 +8,7 @@
   'h h'
   'n c';
   grid-gap: 10px;
+<<<<<<< HEAD
 }
 .header {
   grid-area: h;
@@ -55,4 +56,6 @@ background-color: rgb(255, 255, 255);
 .content img {
   height: 300px;
   width: 900px;
+=======
+>>>>>>> 20e182a368c509ee05662c792cfeada34ac6a303
 }
