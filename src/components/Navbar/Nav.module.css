@@ -8,16 +8,21 @@
     display: flex;
     justify-content: center;
     flex-flow: column;
+    position: sticky;
+    top: 70px;
+    height: fit-content;
+  }
+  .nav div a{
+    color: rgb(130, 243, 243);
+    width: 90px;
   }
   .nav div {
-    margin-top: 10px;
-    background-color: rgb(130, 243, 243);
-    width: 90px;
-    text-align: center;
+    margin: 10px 10px;
+    border-radius: 5px;
   }
   .item {
       color: white;
   }
   .item.active {
-    color: gold;
+    box-shadow: 0 0 8px 1px rgb(154, 191, 201);
   }
