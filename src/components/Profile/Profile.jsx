@@ -4,9 +4,9 @@ import s from "./Profile.module.css";
 
 const Profile = () => {
   return (
-    <div>
+    <div className={s.profile}>
       <div>
-        <img src="https://www.burgessyachts.com/sitefiles/burgess/medialibrary/destinations/corsica-sardinia/beach_panorama_in_maddalena_islands_sardinia_italy_vb770115.jpg?width=2000&height=900&mode=crop&format=jpeg&quality=80"></img>
+        <img className='bigphoto' alt='bigphoto' src="https://www.burgessyachts.com/sitefiles/burgess/medialibrary/destinations/corsica-sardinia/beach_panorama_in_maddalena_islands_sardinia_italy_vb770115.jpg?width=2000&height=900&mode=crop&format=jpeg&quality=80"></img>
       </div>
       <div>
         ava + description
