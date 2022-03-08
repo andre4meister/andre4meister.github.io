@@ -1,28 +1,28 @@
 .nav {
     grid-area: n;
-    background-color: rgb(129, 129, 129);
-    text-align: center;
+    background-color: rgb(153, 150, 150);
     font-size: 20px;
     font-family: Helvetica, sans-serif;
     border-radius: 7px;
     display: flex;
-    justify-content: center;
     flex-flow: column;
     position: sticky;
     top: 70px;
     height: fit-content;
-  }
-  .nav div a{
-    color: rgb(130, 243, 243);
-    width: 90px;
-  }
-  .nav div {
+    padding: 20px;
+}
+.item{
     margin: 10px 10px;
     border-radius: 5px;
+    background-color:rgb(130, 243, 243);
+}
+  .item a{
+    padding-left: 5px;
+    color: aliceblue;
+    text-decoration: none;
   }
-  .item {
-      color: white;
-  }
-  .item.active {
-    box-shadow: 0 0 8px 1px rgb(154, 191, 201);
+.item.actived a{
+    color:rgb(240, 160, 0);
+    box-shadow: 0 0 8px 1px rgb(140, 180, 180);
+    visibility: hidden;
   }
