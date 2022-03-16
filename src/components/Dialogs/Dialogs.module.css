@@ -17,3 +17,16 @@ color: black;
 .message {
     color: black;
 }
+.ava {
+    width: 50px;
+    border-radius: 100%;
+}
+.name {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    top: -15px;
+}
+.name:hover {
+    color:aqua
+}

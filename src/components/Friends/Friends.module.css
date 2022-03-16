@@ -1,0 +1,16 @@
+.friend {
+   display: flex; 
+   justify-content: flex-start;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   width: 100%;
+}
+.ava {
+    width: 50px;
+    border-radius: 100%;
+}
+.name {
+    position: relative;
+    top: 12px;
+    margin-left: 5px;
+}
