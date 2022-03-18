@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {
+  console.log('State changed')
+}
 
 let state = {
   profilePage: {
@@ -7,7 +9,8 @@ let state = {
         { id: 2, name: "it`s me first post", like: 22 },
         { id: 3, name: "Marik", like: 10 },
         { id: 4, name: "Vova", like: 44 },
-      ]
+      ],
+    newPostText: '',
   },
     messagesPage: {
       messagesData: [
@@ -21,9 +24,6 @@ let state = {
         {id: 6, message: 'QQ'},
         {id: 1, message: 'How is your dog?'},
         {id: 3, message: 'How is your dog?'},
-        {id: 4, message: 'How is your dog?'},
-        {id: 5, message: 'How is your dog?'},
-        {id: 6, message: 'How is your dog?'},
       ],
       
        dialogsData: [
@@ -33,7 +33,8 @@ let state = {
         {id: 4, name: 'Vova', ava: 'https://avatarfiles.alphacoders.com/968/thumb-96848.png'},
         {id: 5, name: 'Roman', ava: 'https://avatarfiles.alphacoders.com/633/thumb-63329.png'},
         {id: 6, name: 'Bohdan', ava: 'https://pixelbox.ru/wp-content/uploads/2020/11/ava-maincraft-youtube-75-300x300.jpg'},
-      ]
+      ],
+      newMessageText: 'gg',
     },
       sideBar: [
         {id: 1, name: 'Dima', ava: 'https://i.imgur.com/AVaPsiy.jpg'},
@@ -43,15 +44,39 @@ let state = {
       ]   
 }
 
-
-export let addPost = (postMessage) => {
+window.state = state;
+export const addPost = () => {
   let newPost = {
     id: 2,
-    name: postMessage,
+    name: state.profilePage.newPostText,
     like: 2
   };
   
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
   rerenderEntireTree(state);
+}
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+}
+
+export const addMessage = () => {
+  let newMessage = {
+    id: 2,
+    message: state.profilePage.newMessageText,
+  };
+  
+  state.profilePage.posts.push(newMessage);
+  state.profilePage.newMessageText = '';
+  rerenderEntireTree(state);
+}
+export const updateNewMessageText = (newText) => {
+  state.profilePage.newMessageText = newText;
+  rerenderEntireTree(state);
+}
+
+export const subscriber = (observer) => {
+  rerenderEntireTree = observer;
 }
 export default state;
