@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+
+
 
 let store = {
   _state: {
@@ -50,52 +50,21 @@ let store = {
   },
 
 
-  subscriber(observer) {
+  subscribe(observer) {
     this._callSubscriber = observer;
   },
   getState() {
     return this._state
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 2,
-        name: this._state.profilePage.newPostText,
-        like: 2
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    }
-    else if (action.type === UPDATE_NEW_POST_TEXT) {
-        this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber(this._state);
-    }
-    else if (action.type === ADD_MESSAGE) {
-        let newMessage = {
-          id: 2,
-          message: this._state.messagesPage.newMessageText,
-        };
-        this._state.messagesPage.messagesData.push(newMessage);
-        this._state.messagesPage.newMessageText = '';
-        this._callSubscriber(this._state);
-    }
-    else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        this._state.messagesPage.newMessageText = action.newText;
-        this._callSubscriber(this._state);
-    }
-  },
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+
+    this._callSubscriber(this._state);
+  }
+    
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostTextActionCreator = (newText) => {
-  return {type: UPDATE_NEW_POST_TEXT,  newText: newText}
-}
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-export const updateNewMessageTextActionCreator = (newText) => {
-  return {type: UPDATE_NEW_MESSAGE_TEXT,  newText: newText}
-}
 
 window.store = store;
 export default store;
