@@ -7,8 +7,9 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
-import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import FriendsContainer from './components/Friends/FriendsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 // зробити шоб повідомлення були по різні сторони з кружечками    ------------
 // в сайдбар добавити блок френдс, який завжди  відображаться і 3 друзів з авами
@@ -21,12 +22,13 @@ const App = (props) => {
         <Nav state={props.sideBar}/>
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path="/profile/" element={<Profile store={props.store} />} />
-            <Route path="/dialogs/*" element={<DialogsContainer store={props.store} />} />
+            <Route path="/profile/" element={<Profile />} />
+            <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/news" element={<News />} />
+            <Route path="/users" element={<UsersContainer />} />
             <Route path="/music" element={<Music />} />
-            <Route path="/friends" element={<Friends state={props.state.sideBar}/>} />
+            <Route path="/friends" element={<FriendsContainer />} />
           </Routes>
         </div>
       </div>
