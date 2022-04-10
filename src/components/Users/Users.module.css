@@ -15,3 +15,14 @@
     left: 600px;
     top: -40px;
 }
+.selectedPage {
+    font-weight: bold;
+    margin: 0 2px;
+}
+.otherPage {
+    margin: 0 2px;
+}
+.pages {
+    display: flex;
+    justify-content: center;
+}
