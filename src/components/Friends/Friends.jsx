@@ -3,7 +3,7 @@ import s from './Friends.module.css'
 import Friend from "./Friend/Friend";
 
 const Friends = (props) => {
-    let bestFriends = props.state
+    let bestFriends = props.friends
         .map( friend => (<Friend ava={friend.ava} name={friend.name}/>));
 
     return (

@@ -5,4 +5,23 @@
 }
 .descriptionBlock {
   padding: 10px;
+  display: flex;
+}
+.describe {
+  display: flex;
+  justify-content: space-between;
+}
+.description {
+  margin-left: 10px;
+}
+.name {
+  margin: 0 0 4px 10px;
+  color: blue;
+}
+.aboutMe {
+  color: yellow;
+}
+.contacts {
+  display: flex;
+  justify-content: end;
 }

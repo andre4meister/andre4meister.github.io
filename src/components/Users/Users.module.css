@@ -1,0 +1,28 @@
+ img{
+    width: 50px;
+}
+.name {
+    margin: 0 0 20px 20px;
+}
+.status {
+    margin: 0 0 0 15px;
+}
+.user {
+    display: flex;
+}
+.location {
+    position: relative;
+    left: 600px;
+    top: -40px;
+}
+.selectedPage {
+    font-weight: bold;
+    margin: 0 2px;
+}
+.otherPage {
+    margin: 0 2px;
+}
+.pages {
+    display: flex;
+    justify-content: center;
+}
