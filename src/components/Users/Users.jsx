@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/images/original.jpeg";
 import { NavLink } from "react-router-dom";
+import { usersAPI } from "../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -14,7 +15,7 @@ const Users = (props) => {
     <div>
       <div className={s.pages}>
         {pages.map((p) => {
-          if (p < 10 || p === pages.length - 1)
+          if (p === 1 || p < 10 || p === pages.length - 1)
             return (
               <span
                 className={
@@ -44,16 +45,34 @@ const Users = (props) => {
               <div>
                 {u.followed === false ? (
                   <button
+                    disabled={props.followingInProgress.some( id => id === u.id)}
                     onClick={() => {
-                      props.follow(u.id);
+                      props.toggleFollowingProgress(true, u.id);
+                      usersAPI.follow(u.id)
+                        .then((response) => {
+                          if (response.data.resultCode === 0) {
+                            props.follow(u.id);
+                          }
+                          props.toggleFollowingProgress(false, u.id);
+
+                        });
                     }}
                   >
                     Follow
                   </button>
                 ) : (
                   <button
+                    disabled={props.followingInProgress.some( id => id === u.id)}
                     onClick={() => {
-                      props.unfollow(u.id);
+                      props.toggleFollowingProgress(true, u.id);
+                      usersAPI.unfollow(u.id)
+                        .then((response) => {
+                          if (response.data.resultCode === 0) {
+                            props.unfollow(u.id);
+                          }
+                          props.toggleFollowingProgress(false, u.id);
+                        });
+
                     }}
                   >
                     Unfollow
