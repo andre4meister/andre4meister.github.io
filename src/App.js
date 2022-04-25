@@ -10,6 +10,7 @@ import FriendsContainer from './components/Friends/FriendsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 
 const App = (props) => {
@@ -27,6 +28,7 @@ const App = (props) => {
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/music" element={<Music />} />
             <Route path="/friends" element={<FriendsContainer />} />
+            <Route path="/login" element={<Login/>} />
           </Routes>
         </div>
       </div>

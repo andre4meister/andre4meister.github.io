@@ -11,6 +11,7 @@ import {
 import Users from "./Users";
 import React from "react";
 import Preloader from "../common/Preloader/Preloader";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 class UsersApiComponent extends React.Component {
   componentDidMount() {
@@ -61,29 +62,8 @@ const mapStateToProps = (state) => {
     followingInProgress: state.usersPage.followingInProgress
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC (totalCount))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         },
-//     }
-// }
 
+let withRedirect = withAuthRedirect(UsersApiComponent)
 export default connect(mapStateToProps, {
   followSuccess,
   unfollowSuccess,
@@ -92,4 +72,4 @@ export default connect(mapStateToProps, {
   getUsers,
   follow,
   unfollow
-})(UsersApiComponent);
+})(withRedirect);
