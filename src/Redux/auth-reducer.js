@@ -5,10 +5,10 @@ const TOGGLE_IS_AUTH = 'TOGGLE_IS_AUTH';
 
 
 let initialState = {
-    userId: null,
+    userId: 23438,
     email: null,
-    login: null,
-    isAuth: false,
+    login: 'Andreameister',
+    isAuth: true,
 };
 
 const authReducer = (state = initialState, action) => {
