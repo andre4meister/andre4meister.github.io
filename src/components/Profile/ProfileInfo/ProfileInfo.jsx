@@ -19,7 +19,7 @@ const ProfileInfo = (props) => {
               : "https://www.burgessyachts.com/sitefiles/burgess/medialibrary/destinations/corsica-sardinia/beach_panorama_in_maddalena_islands_sardinia_italy_vb770115.jpg?width=2000&height=900&mode=crop&format=jpeg&quality=80"
           }
         ></img>
-        <ProfileStatus status={'hello mate'}/>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
       </div>
       <div className={s.descriptionBlock}>
         <div className={s.smallAva}>
