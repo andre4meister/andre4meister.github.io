@@ -26,10 +26,6 @@ export const usersAPI = {
                 `follow/${userId}`
             )
     },
-    auth() {
-       return instance
-            .get(`auth/me`)
-    },
     getProfile(userId) {
         return profileAPI.getProfile(userId)
     }
@@ -50,8 +46,20 @@ export const profileAPI = {
     }
 }
 
-
-
+export const authAPI = {
+    auth() {
+        return instance
+             .get(`auth/me`)
+     },
+    login(email, password, rememberMe = false) {
+        return instance
+             .post('auth/login', {email, password, rememberMe})
+    },
+    logout() {
+        return instance
+             .delete('auth/login')
+    }
+}
 // export const follow = () => {
 //     return instance
 //     .post(
