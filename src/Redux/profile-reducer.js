@@ -8,7 +8,7 @@ const UPDATE_STATUS = 'UPDATE_STATUS';
 let initialState = {
     posts: [
       { id: 1, name: "Hi,how are you", like: 1 },
-      { id: 2, name: "it`s me first post", like: 22 },
+      { id: 2, name: "it`s my first post", like: 22 },
       { id: 3, name: "Marik", like: 10 },
       { id: 4, name: "Vova", like: 44 },
     ],
