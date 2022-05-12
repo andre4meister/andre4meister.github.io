@@ -6,3 +6,10 @@
 .item {
     color: rgb(8, 14, 1);
 }
+.deleteButton {
+  float: right;
+  background-color: rgb(246, 46, 46);
+  position: relative;
+  bottom: 30px;
+  border-radius: 5px;
+}
