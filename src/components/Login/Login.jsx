@@ -11,6 +11,7 @@ import {
 import { Input } from "../common/FormControls/FormsControls";
 import c from "./Login.module.css";
 import s from "../common/FormControls/FormsControls.module.css";
+import { createField } from '../common/FormControls/FormsControls'
 
 const maxLength16 = maxLengthCreator(30);
 const mapsStateToProps = (state) => {
@@ -34,28 +35,21 @@ const Login = (props) => {
   );
 };
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
-        <Field
-          placeholder='Your Login'
-          type='text'
-          name='email'
-          component={Input}
-          validate={[required, maxLength16, email]}
-        />
+        {createField("Your Email", "email", [required, maxLength16, email], Input)}
       </div>
       <div>
-        <Field
-          placeholder='Your Password'
-          type='text'
-          name='password'
-          component={Input}
-          validate={[required, maxLength16]}
-        />
+        {createField(
+          "Your Password",
+          "password",
+          [required, maxLength16],
+          Input
+        )}
       </div>
-      {props.error && <div className={s.formSummaryError}>{props.error}</div>}
+      {error && <div className={s.formSummaryError}>{error}</div>}
       <div>
         <Field type='checkbox' name='rememberMe' component={Input} /> Remember
         me
