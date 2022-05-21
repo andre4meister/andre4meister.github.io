@@ -19,6 +19,7 @@ const mapsStateToProps = (state) => {
     isAuth: state.auth.isAuth,
   };
 };
+
 const Login = (props) => {
   const onSubmit = (formData) => {
     props.login(formData.email, formData.password, formData.rememberMe);
