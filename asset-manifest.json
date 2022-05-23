@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/andre4meister.github.io/static/css/main.16b3ab26.css",
+    "main.js": "/andre4meister.github.io/static/js/main.057e57d5.js",
+    "static/css/672.a3166e8b.chunk.css": "/andre4meister.github.io/static/css/672.a3166e8b.chunk.css",
+    "static/js/672.c3417b11.chunk.js": "/andre4meister.github.io/static/js/672.c3417b11.chunk.js",
+    "static/css/793.75f8d8f4.chunk.css": "/andre4meister.github.io/static/css/793.75f8d8f4.chunk.css",
+    "static/js/793.83bc84f7.chunk.js": "/andre4meister.github.io/static/js/793.83bc84f7.chunk.js",
+    "static/js/787.d9c49f15.chunk.js": "/andre4meister.github.io/static/js/787.d9c49f15.chunk.js",
+    "static/media/original.jpeg": "/andre4meister.github.io/static/media/original.f028d2f1597549ffd7f8.jpeg",
+    "static/media/preloader.svg": "/andre4meister.github.io/static/media/preloader.97476573d84a114312a0fcaec83fa3b3.svg",
+    "index.html": "/andre4meister.github.io/index.html",
+    "main.16b3ab26.css.map": "/andre4meister.github.io/static/css/main.16b3ab26.css.map",
+    "main.057e57d5.js.map": "/andre4meister.github.io/static/js/main.057e57d5.js.map",
+    "672.a3166e8b.chunk.css.map": "/andre4meister.github.io/static/css/672.a3166e8b.chunk.css.map",
+    "672.c3417b11.chunk.js.map": "/andre4meister.github.io/static/js/672.c3417b11.chunk.js.map",
+    "793.75f8d8f4.chunk.css.map": "/andre4meister.github.io/static/css/793.75f8d8f4.chunk.css.map",
+    "793.83bc84f7.chunk.js.map": "/andre4meister.github.io/static/js/793.83bc84f7.chunk.js.map",
+    "787.d9c49f15.chunk.js.map": "/andre4meister.github.io/static/js/787.d9c49f15.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16b3ab26.css",
+    "static/js/main.057e57d5.js"
+  ]
+}
