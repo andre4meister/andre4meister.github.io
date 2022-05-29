@@ -8,3 +8,7 @@
     padding: 10px;
     margin: 40px auto;
 }
+.captcha {
+    width: 200px;
+    height: 100px;
+}

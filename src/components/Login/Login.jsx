@@ -17,12 +17,13 @@ const maxLength16 = maxLengthCreator(30);
 const mapsStateToProps = (state) => {
   return {
     isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl,
   };
 };
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
   };
 
   if (props.isAuth) {
@@ -31,12 +32,12 @@ const Login = (props) => {
   return (
     <div className={c.loginPage}>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
   );
 };
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -55,6 +56,8 @@ const LoginForm = ({ handleSubmit, error }) => {
         <Field type='checkbox' name='rememberMe' component={Input} /> Remember
         me
       </div>
+      {captchaUrl && <img className={c.captcha} src={captchaUrl}/>}
+      {captchaUrl && createField("Captcha", "captcha", [required], Input)}
       <div>
         <button>Log in</button>
       </div>
