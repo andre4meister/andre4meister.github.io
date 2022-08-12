@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import {
   addMessageActionCreator,
-} from "../../Redux/dialogs-reducer";
+} from "../../Redux/dialogs-reducer.ts";
 import { withAuthRedirect } from "../hoc/withAuthRedirect";
 import Dialogs from "./Dialogs";
 

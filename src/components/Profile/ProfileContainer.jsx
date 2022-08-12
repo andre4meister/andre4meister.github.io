@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
-import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile} from "../../Redux/profile-reducer";
+import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile} from "../../Redux/profile-reducer.ts";
 import { withAuthRedirect } from "../hoc/withAuthRedirect";
 import Profile from "./Profile";
 

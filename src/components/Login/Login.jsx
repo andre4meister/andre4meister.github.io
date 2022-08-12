@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
-import { login, logout } from "../../Redux/auth-reducer";
+import { login, logout } from "../../Redux/auth-reducer.ts";
 import {
   email,
   maxLengthCreator,

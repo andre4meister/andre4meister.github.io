@@ -7,7 +7,7 @@ import {
   getUsers,
   follow,
   unfollow
-} from "../../Redux/users-reducer";
+} from "../../Redux/users-reducer.ts";
 import Users from "./Users";
 import React from "react";
 import Preloader from "../common/Preloader/Preloader";
