@@ -8,19 +8,44 @@ import {
   follow,
   unfollow
 } from "../../Redux/users-reducer.ts";
-import Users from "./Users";
+import Users from "./Users.tsx";
 import React from "react";
 import Preloader from "../common/Preloader/Preloader";
 import { withAuthRedirect } from "../hoc/withAuthRedirect";
 import { compose } from "redux";
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getAllUsers } from "../../Redux/users-selectors";
+import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getAllUsers } from "../../Redux/users-selectors.ts";
+import {UserType} from "../../types/types";
+import {AppReducerType} from "../../Redux/redux-store";
 
-class UsersApiComponent extends React.Component {
+type MapStatePropsType = {
+    pageSize: number
+    currentPage: number
+    totalUsersCount: number
+    isFetching: boolean
+    users: UserType[]
+    followingInProgress: any[]
+}
+type MapDispatchPropsType = {
+    getUsers: (pageNumber: number, pageSize: number)=> void
+    setCurrentPage: (pageNumber: number)=> void
+    follow: (userId: number) => void
+    unfollow: (userId: number) => void
+    toggleFollowingProgress: () => void
+    followSuccess: (userId: number) => void
+    unfollowSuccess: (userId: number) => void
+}
+type OwnStatePropsType = {
+    pageTitle: string
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnStatePropsType
+
+class UsersApiComponent extends React.Component<PropsType> {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
-  onPageChanged = (pageNumber) => {
+  onPageChanged = (pageNumber: number): void => {
     this.props.getUsers(pageNumber, this.props.pageSize);
     this.props.setCurrentPage(pageNumber);
   };
@@ -35,6 +60,7 @@ class UsersApiComponent extends React.Component {
 
     return (
       <>
+          <h2>{this.props.pageTitle}</h2>
         {this.props.isFetching ? (
           <Preloader isFetching={this.props.isFetching} />
         ) : null}
@@ -54,18 +80,7 @@ class UsersApiComponent extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     users: state.usersPage.users,
-//     pageSize: state.usersPage.pageSize,
-//     totalUsersCount: state.usersPage.totalUsersCount,
-//     currentPage: state.usersPage.currentPage,
-//     isFetching: state.usersPage.isFetching,
-//     followingInProgress: state.usersPage.followingInProgress
-//   };
-// };
-
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppReducerType): MapStatePropsType => {
   return {
     users: getAllUsers(state),
     pageSize: getPageSize(state),
@@ -76,8 +91,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default compose(
-  connect(mapStateToProps, {
+export default compose<React.Component>(
+  connect<MapStatePropsType, MapDispatchPropsType, OwnStatePropsType, AppReducerType>(mapStateToProps, {
     followSuccess,
     unfollowSuccess,
     setCurrentPage,

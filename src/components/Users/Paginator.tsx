@@ -1,9 +1,17 @@
 import React from "react";
 import s from "./Users.module.css";
 
-const Paginator = (props) => {
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-  let pages = [];
+
+type PaginatorPropsType = {
+    currentPage: number
+    totalUsersCount: number
+    pageSize: number
+    onPageChanged: (p: number)=> void
+
+}
+const Paginator: React.FC<PaginatorPropsType> = (props) => {
+  let pagesCount: number = Math.ceil(props.totalUsersCount / props.pageSize);
+  let pages: number[] = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }

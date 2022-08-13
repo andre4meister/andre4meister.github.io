@@ -6,7 +6,7 @@ import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import FriendsContainer from './components/Friends/FriendsContainer';
-import UsersContainer from './components/Users/UsersContainer';
+import UsersContainer from './components/Users/UsersContainer.tsx';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
@@ -38,7 +38,7 @@ class App extends React.Component {
             <Route path="/settings" element={<Settings />} />
             <Route path="/" element={<News />} />
             <Route path="/news" element={<News />} />
-            <Route path="/users" element={<UsersContainer />} />
+            <Route path="/users" element={<UsersContainer pageTitle="Users" />} />
             <Route path="/music" element={<Music />} />
             <Route path="/friends" element={<FriendsContainer />} />
             <Route path="/login" element={<Login />} />
