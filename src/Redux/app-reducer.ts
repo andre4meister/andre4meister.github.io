@@ -1,5 +1,6 @@
 // @ts-ignore
 import { auth } from "./auth-reducer.ts";
+import {Dispatch} from "redux";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
@@ -11,7 +12,7 @@ let initialState: InitialStateType = {
     initialized: false,
 };
 
-const appReducer = (state= initialState, action): InitialStateType => {
+const appReducer = (state= initialState, action: InitializedSuccessActionType ): InitialStateType => {
     switch (action.type) {
         case INITIALIZED_SUCCESS:
             return {
@@ -28,7 +29,7 @@ type InitializedSuccessActionType = {
 }
 export const initializedSuccess = ():InitializedSuccessActionType => ({ type: INITIALIZED_SUCCESS });
 
-export const initializeApp = () => (dispatch) => {
+export const initializeApp = () => (dispatch: Dispatch<InitializedSuccessActionType>) => {
     let promise = dispatch(auth());
     Promise.all(([promise]))
         .then(() => {

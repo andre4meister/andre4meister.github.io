@@ -15,7 +15,7 @@ import { withAuthRedirect } from "../hoc/withAuthRedirect";
 import { compose } from "redux";
 import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getAllUsers } from "../../Redux/users-selectors.ts";
 import {UserType} from "../../types/types";
-import {AppReducerType} from "../../Redux/redux-store";
+import {AppStateType} from "../../Redux/redux-store";
 
 type MapStatePropsType = {
     pageSize: number
@@ -80,7 +80,7 @@ class UsersApiComponent extends React.Component<PropsType> {
   }
 }
 
-const mapStateToProps = (state: AppReducerType): MapStatePropsType => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
   return {
     users: getAllUsers(state),
     pageSize: getPageSize(state),
@@ -92,7 +92,7 @@ const mapStateToProps = (state: AppReducerType): MapStatePropsType => {
 };
 
 export default compose<React.Component>(
-  connect<MapStatePropsType, MapDispatchPropsType, OwnStatePropsType, AppReducerType>(mapStateToProps, {
+  connect<MapStatePropsType, MapDispatchPropsType, OwnStatePropsType, AppStateType>(mapStateToProps, {
     followSuccess,
     unfollowSuccess,
     setCurrentPage,
