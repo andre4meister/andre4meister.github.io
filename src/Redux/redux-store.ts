@@ -1,9 +1,15 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+// @ts-ignore
 import profileReducer from './profile-reducer.ts';
+// @ts-ignore
 import dialogsReducer from './dialogs-reducer.ts';
+// @ts-ignore
 import sidebarReducer from './sidebar-reducer.ts';
+// @ts-ignore
 import usersReducer from "./users-reducer.ts";
+// @ts-ignore
 import authReducer from "./auth-reducer.ts";
+// @ts-ignore
 import appReducer from './app-reducer.ts';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';

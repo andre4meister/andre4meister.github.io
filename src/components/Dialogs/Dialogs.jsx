@@ -4,8 +4,8 @@ import DialogItem from './DialogItem/DialogItem'
 import Message from "./Message/Message";
 import { Field } from "redux-form";
 import { reduxForm } from "redux-form";
-import { TextArea } from "../common/FormControls/FormsControls";
-import { maxLengthCreator, required } from "../../utils/validators/validators";
+import { TextArea } from "../common/FormControls/FormsControls.tsx";
+import { maxLengthCreator, required } from "../../utils/validators/validators.ts";
 
 const maxLength = maxLengthCreator(10);
 const Dialogs = (props) => {

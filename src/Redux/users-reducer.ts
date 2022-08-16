@@ -1,4 +1,5 @@
-import {usersAPI} from "../api/api";
+// @ts-ignore
+import {usersAPI} from "../api/api.ts";
 import {updateObjectInArray} from '../utils/object-helpers'
 import {UserType} from "../types/types";
 import {ThunkAction} from "redux-thunk";

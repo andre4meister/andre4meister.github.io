@@ -1,4 +1,5 @@
-import {authAPI, securityAPI} from "../api/api";
+// @ts-ignore
+import {authAPI, ResultCodeForCaptcha, ResultCodes, securityAPI} from "../api/api.ts";
 import {ThunkAction} from "redux-thunk";
 import {AppStateType} from "./redux-store";
 
@@ -65,7 +66,7 @@ export const getCaptchaUrlSuccess = (captchaUrl: string | null): getCaptchaUrlSu
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>
 export const auth = (id?: number, email?: string, login?: string, rememberMe?: boolean): ThunkType => async (dispatch) => {
     let response = await authAPI.auth()
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodes.Success) {
         let {id, email, login} = response.data.data;
         dispatch(setAuthUserData(id, email, login, true));
     }
@@ -73,10 +74,10 @@ export const auth = (id?: number, email?: string, login?: string, rememberMe?: b
 
 export const login = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch) => {
     let response = await authAPI.login(email, password, rememberMe, captcha)
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodes.Success) {
         await dispatch(auth());
     } else {
-        if (response.data.resultCode === 10) {
+        if (response.data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired) {
             await dispatch(getCaptchaUrl());
         }
         // let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error';
@@ -86,7 +87,7 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
 
 export const logout = ():ThunkType => async (dispatch) => {
     let response = await authAPI.logout()
-    if (response.data.resultCode === 0) {
+    if (response.data.resultCode === ResultCodes.Success) {
         await dispatch(auth(null, null, null, false));
     }
 }

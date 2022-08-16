@@ -8,7 +8,7 @@ import Settings from './components/Settings/Settings';
 import FriendsContainer from './components/Friends/FriendsContainer';
 import UsersContainer from './components/Users/UsersContainer.tsx';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login.tsx';
 import { connect } from 'react-redux';
 import { initializeApp } from './Redux/app-reducer.ts';
 import Preloader from './components/common/Preloader/Preloader'
