@@ -1,7 +1,11 @@
+// @ts-ignore
 import React from "react";
+// @ts-ignore
 import s from "./Users.module.css";
+// @ts-ignore
 import userPhoto from "../../assets/images/original.jpeg";
 import { NavLink } from "react-router-dom";
+// @ts-ignore
 import Paginator from "./Paginator.tsx";
 import {UserType} from "../../types/types";
 

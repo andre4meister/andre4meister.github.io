@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 import {
-  followSuccess,
-  setCurrentPage,
-  unfollowSuccess,
-  toggleFollowingProgress,
+  actions,
   getUsers,
   follow,
   unfollow
@@ -90,6 +87,10 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     followingInProgress: getFollowingInProgress(state),
   };
 };
+const followSuccess = actions.toggleFollowingProgress;
+const unfollowSuccess = actions.unfollowSuccess;
+const setCurrentPage = actions.setCurrentPage;
+const toggleFollowingProgress = actions.toggleFollowingProgress;
 
 export default compose<React.Component>(
   connect<MapStatePropsType, MapDispatchPropsType, OwnStatePropsType, AppStateType>(mapStateToProps, {
